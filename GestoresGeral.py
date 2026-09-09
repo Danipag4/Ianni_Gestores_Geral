@@ -513,6 +513,23 @@ else:
             .mean()
             .round(2)
         )
+        avaliadores_por_avaliado = (
+            df.dropna(subset=["Nome", "Avaliador"])
+            .groupby("Nome")["Avaliador"]
+            .agg(lambda nomes: ", ".join(sorted(set(nomes.astype(str)))))
+            .rename("Avaliador")
+        )
+        medias_por_avaliado = medias_por_avaliado.join(
+            avaliadores_por_avaliado,
+            on="Nome"
+        )
+        medias_por_avaliado["Rotulo"] = medias_por_avaliado.apply(
+            lambda linha: (
+                f'{linha["Nome"]}<br><sub>({linha["Avaliador"]})</sub>'
+                if pd.notna(linha["Avaliador"]) else linha["Nome"]
+            ),
+            axis=1
+        )
 
         if not medias_por_avaliado.empty:
             melhores = medias_por_avaliado.nlargest(5, "Gestor").sort_values("Gestor")
@@ -524,7 +541,7 @@ else:
                 fig_melhores = px.bar(
                     melhores,
                     x="Gestor",
-                    y="Nome",
+                    y="Rotulo",
                     orientation="h",
                     text="Gestor",
                     color_discrete_sequence=["#2E7D32"]
@@ -548,7 +565,7 @@ else:
                 fig_piores = px.bar(
                     piores,
                     x="Gestor",
-                    y="Nome",
+                    y="Rotulo",
                     orientation="h",
                     text="Gestor",
                     color_discrete_sequence=["#C62828"]
@@ -564,7 +581,7 @@ else:
                     xaxis_range=[0, 5],
                     yaxis={
                         "categoryorder": "array",
-                        "categoryarray": piores["Nome"].tolist()[::-1]
+                        "categoryarray": piores["Rotulo"].tolist()[::-1]
                     },
                     height=320,
                     margin=dict(l=20, r=20, t=20, b=40)
