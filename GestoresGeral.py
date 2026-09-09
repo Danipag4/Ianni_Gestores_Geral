@@ -11,7 +11,7 @@ import streamlit.components.v1 as components
 
 st.set_page_config(layout="wide", page_title="IANNI Agropecuária - Análise Geral de Competências")
 
-logo_path = Path(__file__).with_name("IANNIlogo_ianni_agropecuaria.png.png")
+logo_path = Path(__file__).with_name("IANNIlogo_ianni_agropecuaria.png.PNG")
 
 # 1. CSS Global de Impressão (aplicado apenas ao imprimir)
 st.markdown("""
