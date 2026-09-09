@@ -380,11 +380,24 @@ else:
         ]
 
         if not df_comentarios.empty:
-            df_comentarios = df_comentarios[["COMENT_AVAL", "COMENT_AUTO"]].drop_duplicates().rename(columns={
-                "COMENT_AVAL": "Comentário do Avaliador",
-                "COMENT_AUTO": "Comentário do Avaliado"
+            comentarios_avaliador = "\n\n".join(
+                df_comentarios["COMENT_AVAL"].drop_duplicates()
+            )
+            comentarios_avaliado = "\n\n".join(
+                df_comentarios["COMENT_AUTO"].drop_duplicates()
+            )
+            df_comentarios = pd.DataFrame({
+                "Tipo": ["Comentário do Avaliador", "Comentário do Avaliado"],
+                "Comentário": [comentarios_avaliador, comentarios_avaliado]
             })
-            st.dataframe(df_comentarios, use_container_width=True, hide_index=True)
+            estilo_comentarios = df_comentarios.style.set_properties(
+                subset=["Comentário"],
+                **{
+                    "text-align": "justify",
+                    "white-space": "pre-wrap"
+                }
+            )
+            st.table(estilo_comentarios)
         else:
             st.info("Nenhum comentário encontrado.")
 
