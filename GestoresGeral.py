@@ -496,3 +496,76 @@ else:
             config={"displaylogo": False}
         )
 
+    st.write("## Ranking Geral dos Avaliados")
+    exibir_ranking_geral = st.checkbox(
+        "Exibir ranking geral dos avaliados",
+        key="ranking_geral"
+    )
+
+    if exibir_ranking_geral:
+        medias_por_avaliado = (
+            df.dropna(subset=["Nome", "Gestor"])
+            .groupby("Nome", as_index=False)["Gestor"]
+            .mean()
+            .round(2)
+        )
+
+        if not medias_por_avaliado.empty:
+            melhores = medias_por_avaliado.nlargest(5, "Gestor").sort_values("Gestor")
+            piores = medias_por_avaliado.nsmallest(5, "Gestor").sort_values("Gestor", ascending=False)
+
+            col_melhores, col_piores = st.columns(2)
+            with col_melhores:
+                st.markdown('<h3 style="text-align: center;">5 maiores médias</h3>', unsafe_allow_html=True)
+                fig_melhores = px.bar(
+                    melhores,
+                    x="Gestor",
+                    y="Nome",
+                    orientation="h",
+                    text="Gestor",
+                    color_discrete_sequence=["#2E7D32"]
+                )
+                fig_melhores.update_traces(
+                    texttemplate="%{x:.2f}",
+                    textposition="outside",
+                    cliponaxis=False
+                )
+                fig_melhores.update_layout(
+                    xaxis_title="Média geral",
+                    yaxis_title="Avaliado",
+                    xaxis_range=[0, 5],
+                    height=320,
+                    margin=dict(l=20, r=20, t=20, b=40)
+                )
+                st.plotly_chart(fig_melhores, use_container_width=True, config={"displaylogo": False})
+
+            with col_piores:
+                st.markdown('<h3 style="text-align: center;">5 menores médias</h3>', unsafe_allow_html=True)
+                fig_piores = px.bar(
+                    piores,
+                    x="Gestor",
+                    y="Nome",
+                    orientation="h",
+                    text="Gestor",
+                    color_discrete_sequence=["#C62828"]
+                )
+                fig_piores.update_traces(
+                    texttemplate="%{x:.2f}",
+                    textposition="outside",
+                    cliponaxis=False
+                )
+                fig_piores.update_layout(
+                    xaxis_title="Média geral",
+                    yaxis_title="Avaliado",
+                    xaxis_range=[0, 5],
+                    yaxis={
+                        "categoryorder": "array",
+                        "categoryarray": piores["Nome"].tolist()[::-1]
+                    },
+                    height=320,
+                    margin=dict(l=20, r=20, t=20, b=40)
+                )
+                st.plotly_chart(fig_piores, use_container_width=True, config={"displaylogo": False})
+        else:
+            st.info("Não há médias válidas para montar o ranking.")
+
