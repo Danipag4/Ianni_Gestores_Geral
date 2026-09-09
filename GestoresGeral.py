@@ -152,6 +152,9 @@ color_discrete_map = {
 # -------------------------------------------------------------
 # SIDEBAR
 # -------------------------------------------------------------
+if logo_path.exists():
+    st.sidebar.image(str(logo_path), width=50)
+
 st.sidebar.write("""
 ## Painel Geral - IANNI Agropecuária
 """)
