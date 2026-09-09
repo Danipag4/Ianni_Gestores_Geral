@@ -134,6 +134,7 @@ def desmarcar_checkboxes():
     st.session_state.mostrar_comentarios = False
     st.session_state.avaliacao_equipe = False
     st.session_state.media_avaliadores = False
+    st.session_state.ranking_geral = False
 
 def selecionar_avaliador():
     desmarcar_checkboxes()
