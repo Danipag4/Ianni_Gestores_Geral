@@ -19,7 +19,7 @@ st.markdown("""
 @media print {
     @page {
         size: A4 portrait;
-        margin: 8mm;
+        margin: 5mm;
     }
 
     html, body {
@@ -53,8 +53,24 @@ st.markdown("""
         max-width: 100% !important;
     }
 
+    .stApp,
+    [data-testid="stAppViewContainer"],
+    [data-testid="stAppViewContainer"] > .main,
+    .main,
+    .block-container {
+        min-height: 0 !important;
+        height: auto !important;
+    }
+
+    [data-testid="stVerticalBlock"] {
+        gap: 0.25rem !important;
+    }
+
     [data-testid="stPlotlyChart"] {
         margin: 0 !important;
+        width: 100% !important;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
     }
 
     [data-testid="stImage"] img {
@@ -184,11 +200,6 @@ else:
 
 # Filtros e agregações do colaborador selecionado
 df_filtered = df[df["Colab"] == Nome]
-cargos_disponiveis = (
-    df_filtered["CARGO"].dropna().astype(str).str.strip().unique()
-    if "CARGO" in df_filtered.columns else []
-)
-cargo = cargos_disponiveis[0] if len(cargos_disponiveis) > 0 else "Não informado"
 df_Média = df_filtered.groupby("Compet")[["Gestor"]].mean().round(decimals=1).reset_index()
 aval = ["Gestor"]
 
@@ -212,10 +223,6 @@ if st.session_state.printing:
         f'<h3 style="text-align: center;">Colaborador Avaliado: <strong>{Nome}</strong></h3>',
         unsafe_allow_html=True
     )
-    st.markdown(
-        f'<div style="text-align: center;">({cargo})</div>',
-        unsafe_allow_html=True
-    )
     st.markdown("---")
     
     # 1. Gráfico: Competências
@@ -236,8 +243,9 @@ if st.session_state.printing:
     fig_comp.update_layout(
         xaxis_title="Competências",
         yaxis_title="Médias",
-        height=270,
-        margin=dict(l=45, r=15, t=15, b=45)
+        height=280,
+        margin=dict(l=50, r=25, t=15, b=80),
+        xaxis=dict(automargin=True)
     )
     
     plotly_config_comp = {
@@ -250,9 +258,7 @@ if st.session_state.printing:
             'scale': 2
         }
     }
-    col_grafico_esquerda, col_grafico, col_grafico_direita = st.columns([0.8, 2.4, 0.8])
-    with col_grafico:
-        st.plotly_chart(fig_comp, use_container_width=True, config=plotly_config_comp)
+    st.plotly_chart(fig_comp, use_container_width=True, config=plotly_config_comp)
     
     st.markdown("---")
     
@@ -305,10 +311,6 @@ else:
     # 1. Primeiro Gráfico: Competências
     st.markdown(
         f'<h3 style="text-align: center;">Competências - <strong>{Nome}</strong></h3>',
-        unsafe_allow_html=True
-    )
-    st.markdown(
-        f'<div style="text-align: center;">({cargo})</div>',
         unsafe_allow_html=True
     )
 
