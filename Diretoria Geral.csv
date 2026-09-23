@@ -1,3 +1,4 @@
+0,AVALIADO,CARGO,TIPO,COMPETÊNCIA,PERGUNTA,COMENTÁRIO,COMENT_AVAL,COMENT_AUTO,NOTA GESTOR,AVALIADOR
 1,AVALIADO,CARGO,TIPO,COMPETÊNCIA,PERGUNTA,COMENTÁRIO,COMENT_AVAL,COMENT_AUTO,NOTA GESTOR,AVALIADOR
 2,Fernando de Arruda,ENCARREGADO OPERACIONAL I,OPERACIONAL,FOCO NO RESULTADO,Se preocupa em cumprir as atividades de seu trabalho dentro do tempo estabelecido.,,,,2,Ademar Sebastião Nogueira Franco
 3,Fernando de Arruda,ENCARREGADO OPERACIONAL I,OPERACIONAL,FOCO NO RESULTADO,Consegue atingir os índices de produtividade.,,,,1,Ademar Sebastião Nogueira Franco
@@ -269,7 +270,7 @@
 269,Jose Alves Barbosa Filho,LIDER,LIDERANÇA,INOVAÇÃO,Encontra soluções criativas para contornar obstáculos.,,,,4,Alex Junio dos Santos Silva
 270,Jose Alves Barbosa Filho,LIDER,LIDERANÇA,INOVAÇÃO,Identifica oportunidades de ganho de eficiência.,,,,4,Alex Junio dos Santos Silva
 271,Jose Alves Barbosa Filho,LIDER,LIDERANÇA,INOVAÇÃO,Incentiva a equipe a dar sugestões e ter uma atitude com foco em melhoria.,,,,4,Alex Junio dos Santos Silva
-272,Jose Alves Barbosa Filho,LIDER,LIDERANÇA,Comentários Gerais:,,Comentários,,,,Alex Junio dos Santos Silva
+272,Jose Alves Barbosa Filho,LIDER,LIDERANÇA,,Comentários Gerais:,Comentários,,,,Alex Junio dos Santos Silva
 273,Rycharllys Jeferson Rocha da Silva,LIDER OPERACIONAL,OPERACIONAL,FOCO NO RESULTADO,Se preocupa em cumprir as atividades de seu trabalho dentro do tempo estabelecido.,,,,3,Alex Silvio Pereira Duarte
 274,Rycharllys Jeferson Rocha da Silva,LIDER OPERACIONAL,OPERACIONAL,FOCO NO RESULTADO,Consegue atingir os índices de produtividade.,,,,2,Alex Silvio Pereira Duarte
 275,Rycharllys Jeferson Rocha da Silva,LIDER OPERACIONAL,OPERACIONAL,FOCO NA QUALIDADE,"Segue normas, procedimentos e padrões de qualidade definidos.",,,,3,Alex Silvio Pereira Duarte
@@ -889,7 +890,7 @@
 889,Marlon Rocha Pires,LÍDER OPERACIONAL,LIDERANÇA,INOVAÇÃO,Encontra soluções criativas para contornar obstáculos.,,,,3,André Augusto Ribeiro Vieira
 890,Marlon Rocha Pires,LÍDER OPERACIONAL,LIDERANÇA,INOVAÇÃO,Identifica oportunidades de ganho de eficiência.,,,,3,André Augusto Ribeiro Vieira
 891,Marlon Rocha Pires,LÍDER OPERACIONAL,LIDERANÇA,INOVAÇÃO,Incentiva a equipe a dar sugestões e ter uma atitude com foco em melhoria.,,,,1,André Augusto Ribeiro Vieira
-892,Marlon Rocha Pires,LÍDER OPERACIONAL,LIDERANÇA,Comentários Gerais:,,,,,,André Augusto Ribeiro Vieira
+892,Marlon Rocha Pires,LÍDER OPERACIONAL,LIDERANÇA,,Comentários Gerais:,,,,,André Augusto Ribeiro Vieira
 893,Alex Junio dos Santos Silva,OPERADOR DE MÁQUINAS III,LIDERANÇA,FOCO NO RESULTADO,Se preocupa em cumprir as atividades de seu trabalho dentro do tempo estabelecido.,,,,4,Angela Ianni
 894,Alex Junio dos Santos Silva,OPERADOR DE MÁQUINAS III,LIDERANÇA,FOCO NO RESULTADO,Assume suas responsabilidades com total dedicação como se fosse dono do negócio.,,,,4,Angela Ianni
 895,Alex Junio dos Santos Silva,OPERADOR DE MÁQUINAS III,LIDERANÇA,FOCO NO RESULTADO,"Realiza suas atividades com atitude positiva, a fim de encontrar uma solução, influenciando todos a agirem dessa forma.",,,,3,Angela Ianni
@@ -1945,7 +1946,6 @@
 1945,Carla Cristiane Buzzo de Freitas,ANALISTA FINANCEIRO SENIOR,ADMINISTRATIVO,INOVAÇÃO,Encontra soluções criativas para contornar obstáculos.,,,,4,Sheila Barros Bezerra
 1946,Carla Cristiane Buzzo de Freitas,ANALISTA FINANCEIRO SENIOR,ADMINISTRATIVO,INOVAÇÃO,Identifica oportunidades de ganho de eficiência.,,,,4,Sheila Barros Bezerra
 1947,Carla Cristiane Buzzo de Freitas,ANALISTA FINANCEIRO SENIOR,ADMINISTRATIVO,,Comentários Gerais:,Comentários,,,,Sheila Barros Bezerra
-1948,AVALIADO,CARGO,TIPO,COMPETÊNCIA,PERGUNTA,COMENTÁRIO,COMENT_AVAL,COMENT_AUTO,NOTA GESTOR,AVALIADOR
 1949,Josenildo da Silva,AUXILIAR DE PRODUÇÃO II,OPERACIONAL,FOCO NO RESULTADO,Se preocupa em cumprir as atividades de seu trabalho dentro do tempo estabelecido.,,,,4,Hortelino da Silva Pereira
 1950,Josenildo da Silva,AUXILIAR DE PRODUÇÃO II,OPERACIONAL,FOCO NO RESULTADO,Consegue atingir os índices de produtividade.,,,,3,Hortelino da Silva Pereira
 1951,Josenildo da Silva,AUXILIAR DE PRODUÇÃO II,OPERACIONAL,FOCO NA QUALIDADE,"Segue normas, procedimentos e padrões de qualidade definidos.",,,,4,Hortelino da Silva Pereira
